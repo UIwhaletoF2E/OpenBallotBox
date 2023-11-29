@@ -1,0 +1,370 @@
+:root {
+    --header-bg: #0F172A;
+    --background: #FBFFE1;
+    --main: #475569;
+    --PFP: #F97316;
+    --KMT: #3B82F6;
+    --DPP: #22C55E;
+    --highlight: #E11D48;
+;
+}
+* {
+    font-family: 'Noto Sans TC',"Microsoft JhengHei", sans-serif, "Arial";
+}
+body {
+    margin: 0;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+/* header */
+header {
+    background-color: var(--header-bg);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+.logo, .vote-tip,
+.candidate-name,
+.candidate-name {
+    display: flex;
+    align-items: center;
+}
+/* main */
+main {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: #475569;
+    padding: 2% 3%;
+    max-height: calc(100vh - 64px);
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+.vote-search {
+    border-radius: 6px;
+    padding: 6px;
+}
+.vote-info {
+    flex: 0 0 60%;
+}
+.vote-statistic {
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* max-height: 78.5vh;
+    overflow-y: scroll; */
+}
+.years-switch {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 6px;
+    color: var(--main);
+}
+.years-switch .pre {
+    border: none;
+    background: transparent;
+    border-right: 1px solid #ccc;
+}
+.years-switch .next {
+    border: none;
+    background: transparent;
+    border-left: 1px solid #ccc;
+}
+.vote-year {
+    width: 100%;
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.candidate-group {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+.candidate {
+    display: flex;
+    flex-direction: column;
+    min-width: 27%;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.political-name {
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+.candidate-num {
+    background: #fff;
+    border-radius: 100px;
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin-right: 0.5em;
+}
+
+.PFP.bg, .PFP.city, .map svg path.PFP {
+    background-color: var(--PFP);
+}
+.KMT.bg, .KMT.city, .map svg path.KMT {
+    background-color: var(--KMT);
+}
+.DPP.bg, .DPP.city, .map svg path.DPP {
+    background-color: var(--DPP);
+}
+.map svg path.PFP {
+    fill: var(--PFP);
+}
+.map svg path.KMT {
+    fill: var(--KMT);
+}
+.map svg path.DPP {
+    fill: var(--DPP);
+}
+.PFP .candidate-num {
+    color: var(--PFP);
+}
+.KMT .candidate-num {
+    color: var(--KMT);
+}
+.DPP .candidate-num {
+    color: var(--DPP);
+}
+
+.candidate-name {
+    font-size: 18px;
+    justify-content: center;
+}
+.candidate-name span + span {
+    margin-left: .2rem; 
+}
+.candidate-name b {
+    font-size: 1.25rem;
+}
+.vote-count-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.elected span {
+    border-radius: 6px;
+    padding: 0 6px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.elected span.DPP {
+    background-color: #16A34A;
+}
+.elected.DPP {
+    color: #16A34A;
+}
+.number-vote:after {
+    content:'票';
+    margin-left: 5px;
+}
+.vote-statistic-info, .city-counting {
+    margin-top: 12px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.counting-header {
+    border-bottom: 1px solid #777;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.counting-header-title {
+    color: var(--main);
+    margin: 0;
+    padding: 6px 12px;
+}
+.counting-detail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.vote-total,
+#vote-countdown-days {
+    color: var(--highlight);
+    padding: 0 3px;
+}
+.vote-total,
+.valid-ballot,
+.invalid-ballot {
+    text-align: center;
+    width: 20%;
+}
+.data-switch {
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+}
+.city-region, #counting-switch {
+    border: none;
+    font-size: 18px;
+    margin-right: 1rem;
+    padding: 0 0.5rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .10), 0px 1px 2px 0px rgba(0, 0, 0, .06);
+}
+.region-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+    padding: 1em 2em;
+}
+.vote-count-switch {
+    margin-top: 12px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: space-between;
+}
+.vote-count-switch > div {
+    text-align: center;
+    border-radius: 8px;
+    flex: 0 0 50%;
+    padding: 12px 0;
+    cursor: pointer;
+}
+.vote-count-switch > div:hover {
+    background-color: var(--main);
+    opacity: .5;
+}
+.vote-count-switch > div.active {
+    background-color: var(--main);
+    color:#fff;
+}
+.city-counting .region-list {
+    max-height: 35vh;
+    overflow-y: scroll;
+}
+.city {
+    border-radius: 6px;
+    background-color: #CCC;
+    flex: 0 0 18%;
+    color: #fff;
+    text-align: center;
+    height: fit-content;
+    padding: .5rem;
+}
+.city h4 {
+    margin: 0;
+}
+.map {
+    flex: 0 0 40%;
+    height: 100%;
+}
+.map svg {
+    height: 100%;
+    width: 100%;
+}
+.map svg path {    
+    stroke-width: 3px;
+}
+.map .st1 {
+    stroke:#000;    
+    stroke-width: 1;
+}
+
+.map svg path:hover {
+    opacity: .8;
+}
+
+.counting-chart {
+    position: relative;
+}
+
+.vote-bar {
+    position: absolute;
+    bottom: 11px;
+    right: 2px;
+    width: 96px;
+    height: 0;
+    background: linear-gradient(180deg, #E11D48 0%, #FB7185 100%);
+}
+.vote-bar span {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    color: #fff;
+    font-size: 20px;
+}
+
+.city-vote-showas.percent:after {
+    content: '%';
+    margin-left: .5rem;
+    font-weight: normal;
+}
+.year-switch {
+    position: fixed;
+    right: 5px;
+    bottom:1em;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.year-switch .this-year,
+.year-switch .history {
+    padding: 12px;
+}
+.year-switch .this-year.active {
+    background-color: var(--highlight);
+    border-radius: 8px 8px 0 0;
+    color:#fff;
+}
+.political-party-group {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+}
+.political-party-group .political-party {
+    border:1px solid #fff;
+    border-radius: 6px;
+}
+.political-party-group .political-party .political-name {
+    justify-content: flex-start;
+    font-weight: 300;
+}
+.political-party-group .political-party + .political-party {
+    margin-top:.5em;
+}
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555; 
+    border-radius: 10px;
+    opacity: .5;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: .8;
+  }
+
+  @media screen and (max-width: 1920px){
+    .city-counting .region-list {
+        max-height: 30vh;
+    }
+  }
