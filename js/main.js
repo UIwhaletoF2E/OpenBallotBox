@@ -41,26 +41,36 @@ $(function() {
 			}
 	});
 	$( ".vote-count-switch div" ).on( "click", function() {
-		$( ".vote-count-switch div" ).removeClass("active");
-		$(this).addClass("active");
-		var switchVote = ("city-vote-showas");
-		var showPercent = $(this).hasClass("percent");
-		$('.city-vote-showas').each(function () {
-			var switchData = showPercent ? $(this).data('percent') : $(this).data('counts');
-			$(this).text(switchData);
-			$(this).toggleClass("percent counts"); 
-		  });
-		  //add a comma for counts
-		  if ($(".city-vote-showas.counts").length) {
-			$(".city-vote-showas.counts").each(function () {
-				var addComma = $(this).text();
-				console.log(addComma);
-				var addCommaNum = parseInt(addComma);
-				addCommaNum = addCommaNum.toLocaleString("en-US");
-				$(this).text(addCommaNum);
+		showData('percent');
+
+  		// on click and switch data-type
+  		$('.vote-count-switch div').on('click', function () {
+  		  var targetClass = $(this).hasClass('switch-percent') ? 'percent' : 'counts';
+  		  showData(targetClass);
+  		});
+		function showData(targetClass) {
+			$('.city-vote-showas').each(function () {
+			  var dataValue = $(this).data(targetClass);
+			  $(this).text(dataValue);
+			  $(this).removeClass('percent counts').addClass(targetClass);
 			});
-		}
+	  
+			// switch vote info switch-btn active class
+			$('.vote-count-switch div').removeClass('active');
+			$(`.switch-${targetClass}`).addClass('active');
+			//add a comma for counts
+			if ($(".city-vote-showas.counts").length) {
+				$(".city-vote-showas.counts").each(function () {
+					var addComma = $(this).text();
+					// console.log(addComma);
+					var addCommaNum = parseInt(addComma);
+					addCommaNum = addCommaNum.toLocaleString("en-US");
+					$(this).text(addCommaNum);
+				});
+			}
+		}		
 	});
+	  
 	
 	//add custom attribute by identify city id
 	$(".region-list .city").each(function () {
